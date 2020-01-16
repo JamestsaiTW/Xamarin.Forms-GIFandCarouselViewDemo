@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFSampleApp.Pages.CarouselViewDemoPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout>
+            <CarouselView x:Name="mainCarouselView" HeightRequest="400" PeekAreaInsets="30">
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>h01.jpg</x:String>
+                        <x:String>h02.jpg</x:String>
+                        <x:String>h03.jpg</x:String>
+                        <x:String>h04.jpg</x:String>
+                    </x:Array>
+                </CarouselView.ItemsSource>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding .}" />
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView
+                HorizontalOptions="Center"
+                IndicatorColor="LightGray"
+                IndicatorSize="10"
+                IndicatorView.ItemsSourceBy="mainCarouselView"
+                SelectedIndicatorColor="Black" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
